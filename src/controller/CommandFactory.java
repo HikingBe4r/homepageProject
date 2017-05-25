@@ -11,11 +11,17 @@ public class CommandFactory {
 	private Map<String, String> commandMap = new HashMap<String, String>();
 	
 	private CommandFactory() {
+		
+		// member
 		commandMap.put("/loginForm.do", "controller.member.LoginForm");	// 로그인 폼 페이지
+		commandMap.put("/login.do", "controller.member.LoginAction");	// 로그인 처리 페이지
 		commandMap.put("/joinForm.do", "controller.member.JoinForm");	// 회원가입 폼 페이지
-		commandMap.put("/join.do", "controller.member.JoinAction");	// 회원가입 폼 페이지
+		commandMap.put("/join.do", "controller.member.JoinAction");	// 회원가입 처리 페이지
+		commandMap.put("/logout.do", "controller.member.LogoutAction");	// 회원가입 처리 페이지
 		
-		
+		// board
+		commandMap.put("/boardList.do", "controller.board.BoardListAction");	// 회원가입 처리 페이지
+
 		
 	}
 	

@@ -8,7 +8,7 @@ window.onload = function() {
 		loginBtn.addEventListener("click", function() {
 			var form = document.loginForm;
 			form.action = "../login.do";
-			form.method = "post";
+			form.method = "get";
 			form.submit();
 		});
 	}
@@ -24,9 +24,8 @@ window.onload = function() {
 	if (joinBtn != null) {
 		joinBtn.addEventListener("click", function() {
 			var form = document.loginForm;
-			// form.action = "../joinForm.do";
-			form.action = "joinForm.jsp";
-			form.method = "post";
+			form.action = "../joinForm.do";
+			form.method = "get";
 			form.submit();
 		});
 	}
