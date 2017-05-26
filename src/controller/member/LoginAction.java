@@ -20,7 +20,7 @@ public class LoginAction implements Command{
 		String pwd = request.getParameter("userPwd");
 		ActionForward forward = new ActionForward();
 		MemberVO member = new MemberVO();
-		//MemberVO member = service.loginMember();		// service.loginMember(id,pwd) 가 MemberVO를 return
+		//MemberVO member = service.loginMember();		// service.loginMember(id,pwd) 가 MemberVO를 return 모든 정보가 있어야돼.
 		//if(member.getNO != null) {
 			// 로그인 성공하면 게시판 목록조회
 			HttpSession session = request.getSession();

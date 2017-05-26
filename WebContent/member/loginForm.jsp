@@ -28,6 +28,5 @@
 </c:if>
 
 <c:if test="${!empty sessionScope.member}">
-	${sessionScope.member.name } 님이 로그인하셨습니다. <br>
-	<a href="../logout.do">로그아웃</a>
+	<c:redirect url="/main.jsp"></c:redirect>
 </c:if>

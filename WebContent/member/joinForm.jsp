@@ -4,8 +4,7 @@
 <script type="text/javascript"
 	src="/HPwebproject/member/member.js?version=170525"></script>
 
-
-
+<c:if test="${empty sessionScope.member }">
 	<form name="joinForm" id="joinForm">
 		<table border="1">
 			<caption>회원가입</caption>
@@ -35,3 +34,7 @@
 			</tr>
 		</table>
 	</form>
+</c:if>
+<c:if test="${!empty sessionScope.member }">
+	<c:redirect url="/main.jsp"></c:redirect>
+</c:if>

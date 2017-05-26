@@ -49,8 +49,19 @@ window.onload = function() {
 	var backBtn = document.getElementById("backBtn");
 	if (backBtn != null) {
 		backBtn.addEventListener("click", function() {
-			var form = document.joinForm;
 			history.back();
+		});
+	}
+	
+	var modBtn = document.getElementById("modBtn");
+	if (modBtn != null) {
+		modBtn.addEventListener("click", function() {
+			var form = document.modForm;
+			//modBtn.setAttribute("type", "submit");	// 나중에 쓸모있을수 있으니 알아둬.
+			form.action="../memberMod.do";	
+			form.method="get";
+			//form.submit();		// 이렇게 해버리니까 input의 required 부분이 채워지지 않아도 전송되는 일이 있어서.
+									// 변경함.
 		});
 	}
 }

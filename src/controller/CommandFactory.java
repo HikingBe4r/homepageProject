@@ -18,6 +18,8 @@ public class CommandFactory {
 		commandMap.put("/joinForm.do", "controller.member.JoinForm");	// 회원가입 폼 페이지
 		commandMap.put("/join.do", "controller.member.JoinAction");	// 회원가입 처리 페이지
 		commandMap.put("/logout.do", "controller.member.LogoutAction");	// 회원가입 처리 페이지
+		commandMap.put("/memberModForm.do", "controller.member.MemberModForm");	// 회원가입 처리 페이지
+		commandMap.put("/memberMod.do", "controller.member.MemberModAction");	// 회원가입 처리 페이지
 		
 		// board
 		commandMap.put("/boardList.do", "controller.board.BoardListAction");	// 회원가입 처리 페이지
