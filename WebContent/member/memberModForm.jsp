@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script src="/HPwebproject/member/member.js?version=170526"></script>
+<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js?version=220"></script>
+<script src="${pageContext.request.contextPath }/member/memberMod.js?version=3"></script>
 
 <c:if test="${empty sessionScope.member }">
 	<c:redirect url="/loginForm.do"></c:redirect>
@@ -20,30 +21,32 @@
 			</tr>
 			<tr>
 				<td><label>비밀번호</label></td>
-				<td><input type="password" name="userPwd" id="userPwd" required="required"/></td>
+				<td><input type="password" name="userPwd" id="userPwd" /></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td><label>새로운 비밀번호</label></td>
 				<td><input type="password" name="newUserPwd" id="newUserPwd" /></td>
 			</tr>
 			<tr>
 				<td><label>새로운 비밀번호 확인</label></td>
 				<td><input type="password" name="newUserPwdConfirm"
-					id="newUserPwdConfirm" /></td>
-			</tr>
+					id="newUserPwdConfirm"  />
+					<font name="checkPwd" size="2" color="red"></font>					
+				</td>
+			</tr> -->
 			<tr>
 				<td><label>이름</label></td>
 				<td><input type="text" name="userName" id="userName"
-					value="${sessionScope.member.name }" /><button >중복확인(보류)</button></td>
+					value="${sessionScope.member.name }" /><button type="button">중복확인(보류)</button></td>
 			</tr>
 			<tr>
 				<td><label>가입일</label></td>
-				<td><input type="text" name="userName" id="userName"
+				<td><input type="text" name="userDay" id="userDay"
 					readonly="readonly" value="${sessionScope.member.joinday }" /></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<button type="submit" id="modBtn">수정</button>
+					<button type="button" id="modBtn">수정</button>
 					<button type="button" id="backBtn">뒤로가기</button>
 				</td>
 			</tr>

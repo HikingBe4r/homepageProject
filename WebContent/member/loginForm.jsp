@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript"
-	src="/HPwebproject/member/member.js?version=170525"></script>
+	src="${pageContext.request.contextPath }/member/member.js?version=170529"></script>
 
 <c:if test="${empty sessionScope.member}">
 	<form name="loginForm" id="loginForm">
