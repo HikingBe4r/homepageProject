@@ -27,7 +27,6 @@ public class JoinAction implements Command {
 		Connection conn = null;
 		try {
 			conn = DBConn.getConnection();
-			// 여기서 할일은 insert시키는거.
 			MemberVO member = new MemberVO();
 			member.setEmail(email);
 			member.setPwd(pwd);
