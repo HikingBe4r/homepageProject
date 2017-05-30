@@ -28,5 +28,5 @@
 </c:if>
 
 <c:if test="${!empty sessionScope.member}">
-	<c:redirect url="/main.jsp"></c:redirect>
+	<c:redirect context="${pageContext.request.contextPath }" url="/main.jsp"></c:redirect>
 </c:if>

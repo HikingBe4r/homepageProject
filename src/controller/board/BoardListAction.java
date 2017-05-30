@@ -14,13 +14,10 @@ public class BoardListAction implements Command{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		
 		ActionForward forward = new ActionForward();
 		
-		HttpSession session = request.getSession();
-		session.getAttribute("member");
+		
 		
 		return forward;
 	}
-	
 }

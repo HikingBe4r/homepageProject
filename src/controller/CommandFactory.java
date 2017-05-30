@@ -23,8 +23,17 @@ public class CommandFactory {
 		
 		// board
 		commandMap.put("/boardList.do", "controller.board.BoardListAction");	// 회원가입 처리 페이지
-
 		
+		// article
+		commandMap.put("articleAddForm.do", "controller.article.ArticleAddForm");	//게시글 추가 폼을 보여주는 클래스
+		commandMap.put("articleAdd.do", "controller.article.ArticleAddAction");		// 게시글 추가 처리하는 클래스
+		commandMap.put("articleModForm.do", "controller.article.ArticleModForm");	// 게시글 수정 폼을 보여주는 클래스
+		commandMap.put("articleMod.do", "controller.article.ArticleModAction");		// 게시글 수정 처리하는 클래스
+		commandMap.put("articleList.do", "controller.article.ArticleListAction");	// 게시글 목록 처리하는 클래스
+		commandMap.put("articleDelForm.do", "controller.article.ArticleDelForm");	// 게시글 삭제 폼을 보여주는 클래스
+		commandMap.put("articleDel.do", "controller.article.ArticleDelAction");		// 게시글 삭제 처리하는 클래스
+		commandMap.put("articleDetail.do", "controller.article.ArticleDetailAction");	// 게시글 상세조회 처리하는 클래스
+
 	}
 	
 	public static CommandFactory getInstance(){

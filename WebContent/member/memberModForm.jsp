@@ -5,7 +5,7 @@
 <script src="${pageContext.request.contextPath }/member/memberMod.js?version=3"></script>
 
 <c:if test="${empty sessionScope.member }">
-	<c:redirect url="/loginForm.do"></c:redirect>
+	<c:redirect context="${pageContext.request.contextPath }" url="/loginForm.do"></c:redirect>
 </c:if>
 
 <c:if test="${!empty sessionScope.member }">
