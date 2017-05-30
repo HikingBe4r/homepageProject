@@ -1,4 +1,4 @@
-package DBConn;
+package conn;
 
 import java.sql.Connection;
 

@@ -13,18 +13,73 @@ public class MemberDAO {
 	public static MemberDAO getInstance() {
 		return instance;		
 	}
+	public int loginMember(Connection conn, MemberVO member) throws SQLException {
+		// member 에는 id, pwd가 있다.
+		// select로 id, pwd가 일치하는 member를 select하고, 존재하면 MemberVO를 반환.
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int no = -1;
+		try {
+			System.out.println(member);
+			
+			StringBuilder sql = new StringBuilder();
+			sql.append("select member_no ");
+			sql.append("from member ");
+			sql.append("where member_email = ? and member_pwd = ? ");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			pstmt.setString(1, member.getEmail());
+			pstmt.setString(2, member.getPwd());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				no = rs.getInt(1);
+			}
+			System.out.println("no: "+no);
+			return no;
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+		}
+	}
+	
+	public boolean insertMember(Connection conn, MemberVO member) throws SQLException {
+		PreparedStatement pstmt = null;
+		try {
+			System.out.println("member: "+member);
+			
+			StringBuilder sql = new StringBuilder();
+			sql.append("insert into member ");
+			sql.append("values(member_seq.nextval, ?, ?, ?, sysdate, 0)");
+
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, member.getEmail());
+			pstmt.setString(2, member.getPwd());
+			pstmt.setString(3, member.getName());
+			
+			pstmt.executeUpdate();
+			return true;
+		} finally {
+			if(pstmt!=null) pstmt.close();
+		}
+	}
 	
 	public MemberVO retrieveMember(Connection conn, int no) throws SQLException{
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			stmt = conn.createStatement();
+
 			StringBuilder sql = new StringBuilder();
-			sql.append("select member_id, member_pwd, member_name, member_joinday, authority	");
+			sql.append("select MEMBER_EMAIL, member_pwd, member_name, member_joinday, authority	");
 			sql.append("from member ");
-			sql.append("where member_no = "+no);
+			sql.append("where MEMBER_NO = ?");
+			pstmt = conn.prepareStatement(sql.toString());
 			
-			rs = stmt.executeQuery(sql.toString());
+			pstmt.setInt(1, no);
+			
+			rs = pstmt.executeQuery();
 			
 			MemberVO member = new MemberVO();
 			
@@ -35,12 +90,12 @@ public class MemberDAO {
 				member.setName(rs.getString(3));
 				member.setJoinday(rs.getString(4));
 				member.setAuthority(rs.getInt(5));
-			}			
+			}
 			return member;	
 		} finally {
 			if(rs != null) rs.close();
-			if(stmt != null) stmt.close();
-		}	
+			if(pstmt != null) pstmt.close();
+		}
 	}
 	
 	public void modifyMember(Connection conn, MemberVO member) throws SQLException {

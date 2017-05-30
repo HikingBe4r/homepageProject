@@ -17,7 +17,7 @@ $(document).ready(function() {
 			// 비어있지 않으면 일단 memberMod.do로 넘기고
 			// memberMod.do에서 맞는지 아닌지 체크.
 			var form = document.modForm;
-			//form.setAttribute("action", getContextPath()+ "/memberMod.do");
+	
 			form.action = getContextPath()+ "/memberMod.do";
 			form.method = "post";
 			form.submit();

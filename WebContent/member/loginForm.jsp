@@ -10,7 +10,7 @@
 			<caption>로그인</caption>
 			<tr>
 				<td><label>아이디</label></td>
-				<td><input type="text" name="userId" id="userId" /></td>
+				<td><input type="text" name="userEmail" id="userEmail" /></td>
 			</tr>
 			<tr>
 				<td><label>비밀번호</label></td>
